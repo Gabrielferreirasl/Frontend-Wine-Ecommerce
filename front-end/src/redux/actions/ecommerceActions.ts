@@ -15,3 +15,16 @@ export const setFilteredProducts = (payload: IResponseAPI) => (
     payload,
   });
 };
+
+export const REMOVE_FILTERED_PRODUCTS = 'REMOVE_FILTERED_PRODUCTS';
+export type RemoveFilteredProductsAction = {
+  type: typeof REMOVE_FILTERED_PRODUCTS;
+};
+
+export const removeFilteredProducts = () => (
+  dispatch: Dispatch<RemoveFilteredProductsAction>
+) => {
+  dispatch({
+    type: REMOVE_FILTERED_PRODUCTS,
+  });
+};
