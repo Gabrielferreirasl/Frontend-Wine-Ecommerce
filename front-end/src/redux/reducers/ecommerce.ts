@@ -1,6 +1,6 @@
 import { ICart } from "../../interfaces/ICart";
 import { IResponseAPI } from "../../interfaces/IResponseAPI";
-import { SetFilteredProductsAction, SET_FILTERED_PRODUCTS } from "../actions/ecommerceActions";
+import { RemoveFilteredProductsAction, REMOVE_FILTERED_PRODUCTS, SetFilteredProductsAction, SET_FILTERED_PRODUCTS } from "../actions/ecommerceActions";
 
 type EcommerceState = {
   filter: IResponseAPI | null,
@@ -12,7 +12,9 @@ const INITIAL_STATE = {
   cart: [],
 };
 
-type Actions = SetFilteredProductsAction;
+type Actions =
+SetFilteredProductsAction
+| RemoveFilteredProductsAction;
 
 const ecommerce = (state: EcommerceState = INITIAL_STATE, action: Actions) => {
   switch (action.type) {
@@ -20,6 +22,11 @@ const ecommerce = (state: EcommerceState = INITIAL_STATE, action: Actions) => {
     return {
       ...state,
       filter: action.payload,
+    };
+    case REMOVE_FILTERED_PRODUCTS:
+    return {
+      ...state,
+      filter: null,
     };
   default:
     return state;
