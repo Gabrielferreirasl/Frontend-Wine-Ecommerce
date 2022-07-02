@@ -1,4 +1,5 @@
 import { Dispatch } from "redux";
+import { ICart } from "../../interfaces/ICart";
 import { IResponseAPI } from "../../interfaces/IResponseAPI";
 
 export const SET_FILTERED_PRODUCTS = 'SET_FILTERED_PRODUCTS';
@@ -26,5 +27,20 @@ export const removeFilteredProducts = () => (
 ) => {
   dispatch({
     type: REMOVE_FILTERED_PRODUCTS,
+  });
+};
+
+export const SET_INITIAL_CART_FROM_LS = 'SET_INITIAL_CART_FROM_LS';
+export type SetInitialCartFromLSAction = {
+  type: typeof SET_INITIAL_CART_FROM_LS;
+  payload: ICart[]
+};
+
+export const setInitialCartFromLS = (payload: ICart[]) => (
+  dispatch: Dispatch<SetInitialCartFromLSAction>
+) => {
+  dispatch({
+    type: SET_INITIAL_CART_FROM_LS,
+    payload,
   });
 };
