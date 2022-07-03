@@ -3,7 +3,9 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getLocalStorage } from "../helpers/LSHelpers";
 import { ICart } from "../interfaces/ICart";
+import { IResponseAPI } from "../interfaces/IResponseAPI";
 import {
+  setFilteredProducts,
   setInitialCartFromLS,
 } from "../redux/actions/ecommerceActions";
 import { useAppDispatch } from "../redux/AppHooks";
@@ -25,6 +27,14 @@ const Header: NextPage = () => {
       dispatch(setInitialCartFromLS(cartLS));
     }
   }, [dispatch]);
+
+  const handleFilter = () => {
+    fetch(
+      `https://wine-back-test.herokuapp.com/products?&limit=9&name=${textSearch}`
+    )
+      .then((data) => data.json())
+      .then((data: IResponseAPI) => dispatch(setFilteredProducts(data)));
+  };
 
   return (
     <header>
@@ -62,7 +72,7 @@ const Header: NextPage = () => {
           />
           <Image
             role="button"
-            onClick={() => ''}
+            onClick={() => handleFilter()}
             src={buttonSearchLogo}
             width="32px"
             height="5px"
