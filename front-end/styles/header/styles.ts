@@ -13,7 +13,6 @@ export const HeaderStyle = styled.header`
     background-color: #FFFFFF;
     justify-content: space-around;
     align-items: center;
-    
   }
 
   .links {
