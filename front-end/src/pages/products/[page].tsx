@@ -8,6 +8,7 @@ import { useAppSelector } from "../../redux/AppHooks";
 
 import ProductCard from "../../components/ProductCard";
 import { MainPageStyle } from "../../../styles/page/styles";
+import ChangePageFooter from "../../components/ChangePageFooter";
 
 const Page = ({ data }: { data: IResponseAPI }) => {
   const { isFallback } = useRouter();
@@ -38,6 +39,7 @@ const Page = ({ data }: { data: IResponseAPI }) => {
           )}
         </MainPageStyle>
       </div>
+      <ChangePageFooter totalPages={infoData.totalPages} />
     </>
   );
 };
