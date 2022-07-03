@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import Filters from "../../components/Filters";
 import Header from "../../components/Header";
 import { IResponseAPI } from "../../interfaces/IResponseAPI";
@@ -11,6 +11,20 @@ const Page = () => {
     </>
   );
 };
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const LIMIT_STATIC_PAGES = 4;
+  const paths = [];
+
+  for (let index = 1; index <= LIMIT_STATIC_PAGES; index += 1) {
+    paths.push({ params: { page: index.toString() } });
+  }
+
+  return {
+    paths,
+    fallback: true
+  };
+}
 
 export const getStaticProps: GetStaticProps = async (context) => { 
   const { page } = context.params;
