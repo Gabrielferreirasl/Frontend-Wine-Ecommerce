@@ -18,6 +18,7 @@ const AddOrRemoveProduct = ({ product }: { product: IProduct }) => {
     <AddOrRemoveBtnStyle>
       <div className="add-remove-btns">
         <button
+          disabled={quantity === 1}
           onClick={() => setQuantity(quantity - 1 === 0 ? 1 : quantity - 1)}
           type="button"
         >

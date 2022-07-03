@@ -120,14 +120,21 @@ export const AddOrRemoveBtnStyle = styled.div`
   }
 
   .add-remove-btns {
+    align-items: center;
     display: flex;
     gap: 30px;
   }
 
   .add-remove-btns button {
+    width: 30px;
+    border: 1px solid white;
     border-radius: 50%;
-    border-style: solid 1px;
-    border-color: white;
     align-items: center;
+  }
+
+  .add-remove-btns button:disabled {
+    font-weight: 100;
+    border-style: none;
+    cursor: default;
   }
 `;
