@@ -1,33 +1,37 @@
 import type { NextPage } from "next";
 import { ChangeEvent, useEffect, useState } from "react";
+import { SectionStyle } from "../../styles/filters-nav/styles";
 import { IResponseAPI } from "../interfaces/IResponseAPI";
-import { removeFilteredProducts, setFilteredProducts } from "../redux/actions/ecommerceActions";
+import {
+  removeFilteredProducts,
+  setFilteredProducts,
+} from "../redux/actions/ecommerceActions";
 import { useAppDispatch } from "../redux/AppHooks";
 
 const Filters: NextPage = () => {
   const [filterByPrice, setFilterByPrice] = useState<string | null>(null);
   const dispatch = useAppDispatch();
-  const BASE_URL = 'https://wine-back-test.herokuapp.com';
+  const BASE_URL = "https://wine-back-test.herokuapp.com";
 
   useEffect(() => {
     if (!filterByPrice) {
-      dispatch(removeFilteredProducts())
+      dispatch(removeFilteredProducts());
     } else {
       fetch(`${BASE_URL}/products?filter=${filterByPrice}&limit=9`)
-      .then((data) => data.json())
-      .then((data: IResponseAPI) => dispatch(setFilteredProducts(data)))
+        .then((data) => data.json())
+        .then((data: IResponseAPI) => dispatch(setFilteredProducts(data)));
     }
   }, [filterByPrice, dispatch]);
 
   const handleChange = (ev: ChangeEvent<HTMLInputElement>) => {
     if (ev.target.name === filterByPrice) {
-      return setFilterByPrice(null)
+      return setFilterByPrice(null);
     }
-    setFilterByPrice(ev.target.name)
-  }
+    setFilterByPrice(ev.target.name);
+  };
 
   return (
-    <section>
+    <SectionStyle>
       <h3>Refine sua busca</h3>
       <p>Por preço</p>
       <ul>
@@ -35,7 +39,7 @@ const Filters: NextPage = () => {
           <input
             type="checkbox"
             name="0-40"
-            checked={'0-40' === filterByPrice}
+            checked={"0-40" === filterByPrice}
             id="filter-by-price-40"
             onChange={(ev) => handleChange(ev)}
           />
@@ -45,7 +49,7 @@ const Filters: NextPage = () => {
           <input
             type="checkbox"
             name="40-60"
-            checked={'40-60' === filterByPrice}
+            checked={"40-60" === filterByPrice}
             id="filter-by-price-40-60"
             onChange={(ev) => handleChange(ev)}
           />
@@ -55,7 +59,7 @@ const Filters: NextPage = () => {
           <input
             type="checkbox"
             name="100-200"
-            checked={'100-200' === filterByPrice}
+            checked={"100-200" === filterByPrice}
             id="filter-by-price-100-200"
             onChange={(ev) => handleChange(ev)}
           />
@@ -65,7 +69,7 @@ const Filters: NextPage = () => {
           <input
             type="checkbox"
             name="200-500"
-            checked={'200-500' === filterByPrice}
+            checked={"200-500" === filterByPrice}
             id="filter-by-price-200-500"
             onChange={(ev) => handleChange(ev)}
           />
@@ -75,14 +79,14 @@ const Filters: NextPage = () => {
           <input
             type="checkbox"
             name="500-0"
-            checked={'500-0' === filterByPrice}
+            checked={"500-0" === filterByPrice}
             id="filter-by-price-500"
             onChange={(ev) => handleChange(ev)}
           />
           <label htmlFor="filter-by-price-500">Acima de R$500</label>
         </li>
       </ul>
-    </section>
+    </SectionStyle>
   );
 };
 
