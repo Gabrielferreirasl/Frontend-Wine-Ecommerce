@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 export const SectionStyle = styled.section`
-  padding-left: 160px;
   padding-bottom: 10px;
+  padding-left: 10%;
 
   p, label{
     font-family: Lato,Arial,sans-serif;
     font-size: 1rem;
     font-weight: 50;
+    color: #666666;
   }
 
   h3 {
