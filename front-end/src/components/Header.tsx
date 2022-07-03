@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { HeaderStyle, SearchInput } from "../../styles/header/styles";
 import { getLocalStorage } from "../helpers/LSHelpers";
 import { ICart } from "../interfaces/ICart";
 import { IResponseAPI } from "../interfaces/IResponseAPI";
@@ -22,7 +23,7 @@ const Header: NextPage = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const cartLS: ICart[] = getLocalStorage("products");
+    const cartLS: ICart[] = getLocalStorage("cart");
     if (cartLS) {
       dispatch(setInitialCartFromLS(cartLS));
     }
@@ -37,7 +38,7 @@ const Header: NextPage = () => {
   };
 
   return (
-    <header>
+    <HeaderStyle>
       <div className="header-main">
         <div>
           <Image
@@ -64,7 +65,7 @@ const Header: NextPage = () => {
         </div>
       </div>
       {searchbar && (
-        <div>
+        <SearchInput>
           <input
             placeholder="Pesquisar"
             type="text"
@@ -78,9 +79,9 @@ const Header: NextPage = () => {
             height="5px"
             alt="search"
           />
-        </div>
+        </SearchInput>
       )}
-    </header>
+    </HeaderStyle>
   );
 };
 
