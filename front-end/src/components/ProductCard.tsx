@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useAppDispatch } from "../redux/AppHooks";
 import Link from "next/link";
 import PageProductDetails from "./PageProductDetails";
+import { addProductToCart } from "../redux/actions/ecommerceActions";
 
 const ProductCard = ({ product }: { product: IProduct }) => {
   const dispatch = useAppDispatch();
@@ -34,6 +35,7 @@ const ProductCard = ({ product }: { product: IProduct }) => {
       <div className="container-addBtn">
         <button
           type="button"
+          onClick={() => dispatch(addProductToCart({...product, amount: 1}))}
         >
           ADICIONAR
         </button>
