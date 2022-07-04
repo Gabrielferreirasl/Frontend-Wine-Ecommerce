@@ -14,6 +14,15 @@ Desafio é desenvolver uma aplicação Fron-end de um E-Commerce de vinhos.
   
 ## Deploy Vercel: https://wine-beryl.vercel.app/
 
+## Screenshots:
+![](front-end/public/loja.png)
+
+
+![](front-end/public/detalhes.png)
+
+
+![](front-end/public/cart.png)
+
 ### Desafios:
  - Foi a primeira vez que ultilizo TypeScript no front, Nextjs e styled-components.
  Optei por usar Redux, por ser o manipulador de estado que a Wine ultiliza,
