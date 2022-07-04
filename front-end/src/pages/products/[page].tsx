@@ -39,7 +39,7 @@ const Page = ({ data }: { data: IResponseAPI }) => {
           )}
         </MainPageStyle>
       </div>
-      <ChangePageFooter totalPages={infoData.totalPages} />
+      {infoData && <ChangePageFooter totalPages={infoData.totalPages} />}
     </>
   );
 };
