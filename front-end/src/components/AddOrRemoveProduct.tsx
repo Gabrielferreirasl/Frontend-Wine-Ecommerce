@@ -9,7 +9,7 @@ const AddOrRemoveProduct = ({ product }: { product: IProduct }) => {
   const dispatch = useAppDispatch();
 
   const handleChange = (value: string) => {
-    if (Number(value) !== 0) {
+    if (Number(value) && Number(value) !== 0) {
       setQuantity(Number(value));
     }
   };
