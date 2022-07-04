@@ -6,6 +6,8 @@ import {
   ADD_PRODUCT_TO_CART,
   ChangepProductQuantityAction,
   CHANGE_PRODUCT_QUANTITY,
+  ClearCartAction,
+  CLEAR_CART,
   RemoveFilteredProductsAction,
   REMOVE_FILTERED_PRODUCTS,
   SetFilteredProductsAction,
@@ -29,7 +31,8 @@ type Actions =
   | RemoveFilteredProductsAction
   | SetInitialCartFromLSAction
   | AddProductToCartAction
-  | ChangepProductQuantityAction;
+  | ChangepProductQuantityAction
+  | ClearCartAction;
 
 const ecommerce = (state: EcommerceState = INITIAL_STATE, action: Actions) => {
   switch (action.type) {
@@ -89,7 +92,14 @@ const ecommerce = (state: EcommerceState = INITIAL_STATE, action: Actions) => {
         cart,
       };
     }
-
+    case CLEAR_CART:
+      {
+        localStorage.removeItem('cart');
+        return {
+          ...state,
+          cart: [],
+        };
+      }
     default:
       return state;
   }
