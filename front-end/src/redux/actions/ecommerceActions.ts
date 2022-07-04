@@ -74,3 +74,16 @@ export const changeProductQuantity = (payload: IAddRemoveAmount) => (
     payload,
   });
 };
+
+export const CLEAR_CART = 'CLEAR_CART';
+export type ClearCartAction = {
+  type: typeof CLEAR_CART;
+};
+
+export const clearCart = () => (
+  dispatch: Dispatch<ClearCartAction>
+) => {
+  dispatch({
+    type: CLEAR_CART,
+  });
+};
