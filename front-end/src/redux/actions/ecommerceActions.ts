@@ -59,3 +59,18 @@ export const addProductToCart = (payload: IAddRemoveAmount) => (
     payload,
   });
 };
+
+export const CHANGE_PRODUCT_QUANTITY = 'CHANGE_PRODUCT_QUANTITY';
+export type ChangepProductQuantityAction = {
+  type: typeof CHANGE_PRODUCT_QUANTITY;
+  payload: IAddRemoveAmount
+};
+
+export const changeProductQuantity = (payload: IAddRemoveAmount) => (
+  dispatch: Dispatch<ChangepProductQuantityAction>
+) => {
+  dispatch({
+    type: CHANGE_PRODUCT_QUANTITY,
+    payload,
+  });
+};
