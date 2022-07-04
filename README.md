@@ -44,7 +44,7 @@ Desafio é desenvolver uma aplicação Fron-end de um E-Commerce de vinhos.
  - [ ] CSS com styled-components - responsivo(mobile)
  - [ ] Testes
 
-##### Após faazer o Download do projeto:
+##### Após fazer o Download do projeto:
 
 ```
 npm i
