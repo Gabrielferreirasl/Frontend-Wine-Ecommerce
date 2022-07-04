@@ -59,10 +59,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { page } = context.params;
   const BASE_URL = "https://wine-back-test.herokuapp.com/";
 
-  const response = await fetch(`${BASE_URL}products?page=${page}&limit=9`);
+  const response = await fetch(`${BASE_URL}products?page=${context.params?.page}&limit=9`);
   const data: IResponseAPI = await response.json();
 
   return {
