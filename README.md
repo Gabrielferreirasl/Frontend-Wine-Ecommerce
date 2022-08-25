@@ -1,4 +1,3 @@
-# Desafio - WINE
 Desafio é desenvolver uma aplicação Fron-end de um E-Commerce de vinhos.
 
 ## Stacks ultilizadas:
@@ -28,12 +27,8 @@ Desafio é desenvolver uma aplicação Fron-end de um E-Commerce de vinhos.
  Optei por usar Redux, por ser o manipulador de estado que a Wine ultiliza,
  tive muitos problemas com tipagem, além de nunca ter usado Nextjs e styled-components,
  então tive que aprender essas ferramentas enquanto fazia o projeto.
- Projeto está com um erro quando da reload na pagina executando local, o erro não acontece
- no Vercel, estou trabalhando nele.
  
 ## **Requisitos:**
- - Só consegui trabalhar no projeto 2 dias, e por conta do tempo não consegui finalizar
- todos requisitos.
  
  - [x] - Catálogo de produtos com paginação
  - [x] Filtragem produtos por preço
