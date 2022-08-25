@@ -11,7 +11,7 @@ Desafio é desenvolver uma aplicação Fron-end de um E-Commerce de vinhos.
   - Componente Funcional.
   - Foi utilizado hooks.
   
-## Deploy Vercel: https://wine-beryl.vercel.app/
+## Deploy Vercel: frontend-wine-ecommerce.vercel.app
 
 ## Screenshots:
 ![](front-end/public/loja.png)
